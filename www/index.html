@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/formularioClase9Ctrl.js"></script>
+</head>
+<body ng-app="clase9">
+<div ng-controller="formularioClase9 as vm">
+    <form name="vm.form" ng-submit="vm.enviar()">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Nombre" ng-model="vm.model.name" ng-required="true">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Apellido" ng-model="vm.model.lastname" ng-required="true">
+            </label>
+            <ul class="list">
+
+                <li class="item item-toggle">
+                    Est&aacute; despierto?
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" ng-model="vm.model.awake">
+
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <button ng-disabled="vm.form.$invalid" type="submit" class="button button-block button-positive">
+            Guardar
+        </button>
+    </form>
+    {{vm.form | json}}
+</div>
+</body>
+</html>
